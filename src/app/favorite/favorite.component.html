@@ -1,0 +1,20 @@
+<h2>welcome to fav list!!</h2>
+<div class="container" style="padding-top: 88px">
+    <div class="row">
+        <div class="col-md-4 pb-5" *ngFor="let repo of favlist">
+            <div class="card" style="width:100%; height:100%;">
+                <div class="card-header" id="card-header">{{repo.name}} {{repo.id}}</div>
+
+                <div class="card-body" id="card-body">
+                    <p><strong>Description:</strong> {{repo.description}}</p>
+                    <p><strong>Author:</strong> {{repo.owner.login}}</p>
+                    <p><strong>Creation Date:</strong> {{repo.created_at}}</p>
+                </div>
+                <div class="card-footer" id="cfooter">
+                    <button id="removebtn" class="btn btn-danger" (click)="removeFromFav(repo.id)">Remove Favorite</button>
+                    <a href="{{repo.html_url}}" target="_blank" class="btn btn-primary">Open Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

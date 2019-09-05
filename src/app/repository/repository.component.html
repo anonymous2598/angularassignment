@@ -1,0 +1,27 @@
+<link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
+
+<div style="padding-top: 100px;padding-left: 39%;">
+    <input type="text" style="width: 300px" [(ngModel)]="search" placeholder="search repositories here"
+        (keyup)="findRepos()">
+</div>
+
+
+<div class="container" style="padding-top: 88px">
+    <div class="row">
+        <div class="col-md-4 pb-5" *ngFor="let repo of repo.items">
+            <div class="card" style="width:100%; height:100%;">
+                <div class="card-header" id="card-header">{{repo.name}} {{repo.id}}</div>
+
+                <div class="card-body" id="card-body">
+                    <p><strong>Description:</strong> {{repo.description}}</p>
+                    <p><strong>Author:</strong> {{repo.owner.login}}</p>
+                    <p><strong>Creation Date:</strong> {{repo.created_at}}</p>
+                </div>
+                <div class="card-footer" id="cfooter">
+                    <button id="addbtn" class="btn btn-success" (click)="addToFav(repo)">Add to Favorites</button>
+                    <a href="{{repo.html_url}}" target="_blank" class="btn btn-primary">Open Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
